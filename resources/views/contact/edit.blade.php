@@ -15,7 +15,7 @@
                     @endif
                     
                     editです
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('contact.update', ['id' => $contact->id ])}}">
                     @csrf 
                     氏名
                         <input type="text" name="your_name" value="{{ $contact->your_name}}">
@@ -30,8 +30,8 @@
                         <input type="url" name="url" value="{{ $contact->url}}">
                         <br>
                         性別
-                        <input type="radio" name="gender" value="0" @if($contact->gender === 0) cheked @endif>男性
-                        <input type="radio" name="gender" value="1" @if($contact->gender === 0) cheked @endif>女性
+                        <input type="radio" name="gender" value="0" @if($contact->gender === 0) checked @endif>男性
+                        <input type="radio" name="gender" value="1" @if($contact->gender === 1) checked @endif>女性
                         <br>
                         年齢
                         <select name="age">
