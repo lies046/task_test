@@ -14,6 +14,16 @@
                         </div>
                     @endif
 
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     createです
                     <form method="POST" action="{{route('contact.store')}}">
                     @csrf
@@ -48,8 +58,7 @@
                         <textarea name="contact"></textarea>
                         <br>
 
-                        <input class="form-check-input" type="checkbox" id="caution">
-                        <label class="form-check-label" for="caution">注意事項に同意する</label>
+                        <input type="checkbox" name="caution" value="1">注意事項に同意する
                         <br>
                         
                         <input class="btn btn-info" type="submit" value="登録する">
