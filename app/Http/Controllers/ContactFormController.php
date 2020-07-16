@@ -19,7 +19,7 @@ class ContactFormController extends Controller
     public function index()
     {
         //
-        $contacts = DB::table('contact_forms')->select('id', 'your_name', 'title', 'created_at')->get();
+        $contacts = DB::table('contact_forms')->select('id', 'your_name', 'title', 'created_at')->paginate(20);
         return view('contact.index', compact('contacts'));
     }
 
